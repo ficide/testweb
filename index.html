@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice web</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .top-nav {
+            background-color: #6575ee;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+        .side-nav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #6575ee;
+            padding-top: 60px;
+            transition: 0.3s;
+        }
+        .side-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: 0.2s;
+        }
+        .side-nav a:hover {
+            background-color: #6575ee;
+        }
+        .side-nav.open {
+            left: 0;
+        }
+        .content {
+            margin-left: 0;
+            padding: 20px;
+            transition: 0.3s;
+        }
+        .content.shift {
+            margin-left: 250px;
+        }
+        .nav-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: white;
+        }
+        .close-btn:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-nav">
+        <div>
+            <button class="nav-toggle" onclick="toggleSideNav()">&#9776;</button>
+            <h2>ficide
+            </h2>
+  
+        </div>
+        <div>
+            <a href="https://github.com/ficide/web111">github</a>
+            <a href="https://github.com/ficide">主页</a>
+        </div>
+    </div>
+
+    <div class="side-nav" id="sideNav">
+        <button class="close-btn" onclick="toggleSideNav()">&times;</button>
+        <a href="#">侧边栏，但是没有链接</a>
+
+    </div>
+
+    <div class="content" id="content">
+        <h1>这是一个示例网站</h1>
+        <p>这个网站有一个侧边栏，但是没有链接，还有两个能跳转github的超链接</p>
+        <p>我也不知道下面该加什么了，就这样吧</p>
+    </div>
+
+    <script>
+        function toggleSideNav() {
+            const sideNav = document.getElementById('sideNav');
+            const content = document.getElementById('content');
+            sideNav.classList.toggle('open');
+            content.classList.toggle('shift');
+        }
+    </script>
+
+</body>
+</html>
